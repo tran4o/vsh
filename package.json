@@ -1,0 +1,19 @@
+{
+  "name": "vsh",
+  "version": "1.0.0",
+  "description": "VisionR console shell",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tran4o/vsh.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tran4o/vsh/issues"
+  },
+  "homepage": "https://github.com/tran4o/vsh#readme"
+}
