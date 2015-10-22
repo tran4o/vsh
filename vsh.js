@@ -93,7 +93,7 @@ var auth = 'Basic ' + new Buffer(login + ':' + pass).toString('base64');
 request({
 	  url: "http://"+host+":"+port+"/get-servers.jsp",
 	  method: 'GET',
-	  data: {},
+	  data: {mode:"basic"},
 	  headers : {
 		  'Authorization': auth
 	  }
@@ -178,6 +178,8 @@ function doInput(str,tm)
 			return;
 		}
 		var tt = ln.indexOf("-------Command-execution-time-was-");
+		if (tt < 0)
+			tt = ln.indexOf("-------Wait server to finish loading first!");
 		if (tt >= 0)
 		{
 			console.log(colors.green("DONE!"));

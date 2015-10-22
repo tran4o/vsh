@@ -1,0 +1,10 @@
+cls & node vsh cloud.plan-vision.com:8182 -p plan4vision.2341 -k DEMO <scripts/test1.vr
+
+node vsh http://92.247.187.47:8182 -p somepassword
+s
+node vsh cloud.plan-vision.com:8182 -p somepassword -k DEMO <scripts/reload.vr
+
+node vsh cloud.plan-vision.com:8182 -p somepassword -k DEMO <scripts/showlangs.vr
+
+
+
