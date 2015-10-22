@@ -30,6 +30,7 @@ function getParam() {
 }
 var key;
 var host;
+var type="";
 do 
 {
 	var cmd = eatParam();
@@ -38,13 +39,18 @@ do
 	if (cmd == "-h") {
 		console.log("vsh host[:port] [options]");
 		console.log(colors.gray(" <port>"));
+		console.log(colors.gray("-t [type (raw (default)/vscript/xml/xmlo)]"));
+		console.log(colors.gray("-stop"));
 		console.log(colors.gray("-u <user login>"));
 		console.log(colors.gray("-p [<password>]"));
 		console.log(colors.gray("-k <name keyword>"));
 		console.log(colors.gray("-L"));
 		return;	
 	}
-	if (cmd == "-L") {
+	if (cmd == "-t") {
+		type=eatParam();
+		if (type == "vscript" || type == "xml" || type == "xmlo") {} else type="";
+	} if (cmd == "-L") {
 		isLogFull=true;
 	} else if (cmd == "-k") {
 		key=eatParam();
@@ -123,6 +129,7 @@ request({
 		var kk = Object.keys(servers);
 		if (!kk.length) {
 			console.log(colors.red("No VisionR servers available!"));
+			process.exit(1);
 		} else {
 			if (kk.length != 1) {
 				console.log(colors.gray("More than one server available. Please specify a search keyword (-k <name key>)"));
@@ -151,7 +158,7 @@ function exec(cmd)
 		url: "http://"+host+":"+port+"/exec.jsp?id="+server,
 		method: 'POST',
 		headers:{'content-type': 'text/plain','Authorization': auth},
-		body:cmd
+		body:type+cmd
 	},
 	  function(err,res,body) 
 	  {
