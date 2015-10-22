@@ -1,6 +1,5 @@
 var htmlToText = require('html-to-text');
 var request = require('request');
-//var request = require('ajax-request');
 var readlineSync = require('readline-sync');
 var readline = require('readline');
 var colors = require('colors');
