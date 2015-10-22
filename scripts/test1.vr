@@ -1,0 +1,4 @@
+vscript
+java.log.error("Oplalaa!");
+for (var i=0;i<50;i++)
+	writeln("HEY!"+i);

@@ -1,0 +1,4 @@
+vscript
+for (var lang : db.core.lang.selectWhere("is_active=1 ORDER BY sort_id")) {
+	writeln("Active language "+lang.id+" "+lang.code);
+}
