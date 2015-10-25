@@ -156,7 +156,7 @@ function exec(cmd)
 	{
 		url: "http://"+host+":"+port+"/exec.jsp?id="+server,
 		method: 'POST',
-		headers:{'content-type': 'text/plain','Authorization': auth},
+		headers:{'content-type': 'text/plain; charset=utf-8','Authorization': auth},
 		body:type+cmd
 	},
 	  function(err,res,body) 
